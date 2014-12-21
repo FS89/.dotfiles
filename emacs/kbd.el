@@ -31,9 +31,3 @@
 ;; move to top/bottom of buffer
 (global-set-key (kbd "s-p")       'beginning-of-buffer)
 (global-set-key (kbd "s-n")       'end-of-buffer)
-
-
-;;
-;; Switching to different buffers using C-c <{left,right,up,down}>
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
