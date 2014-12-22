@@ -14,5 +14,6 @@
    jedi
    indent-guide
    flycheck
-   git-gutter)
+   git-gutter
+   helm-ls-git)
 )
