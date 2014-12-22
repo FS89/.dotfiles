@@ -15,7 +15,10 @@
 (load-theme 'tango-dark t)
 
 ;; Backups
-(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+(setq backup-directory-alist `((".*" . "~/.emacs.d/saves")))
+;(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/autosaves" t)))
+
+
 (setq backup-by-copying t)
 (setq delete-old-versions t
   kept-new-versions 6
@@ -28,8 +31,9 @@
 ;; stuff purely used to make me look like more of a hax0r
 (tool-bar-mode -1)
 
-;; add line numbers
+;; add line/column numbers
 (global-linum-mode t)
+(setq column-number-mode t)
 
 ;; indent guide
 (indent-guide-global-mode)

@@ -2,6 +2,9 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
 
+;; auto indent new lines
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
 ;; Press F8 to re-load emacs file
 (global-set-key (kbd "<f8>") (lambda() (interactive) (load-file "~/.emacs")))
 
@@ -17,6 +20,9 @@
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+
+(global-set-key (kbd "C-c C-g") 'helm-git-grep)
+(global-set-key (kbd "C-c g") 'helm-git-grep)
 
 ;;
 ;; Meta + ...

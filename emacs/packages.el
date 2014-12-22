@@ -15,5 +15,7 @@
    indent-guide
    flycheck
    git-gutter
-   helm-ls-git)
+   helm-ls-git
+   json-mode
+   helm-git-grep)
 )

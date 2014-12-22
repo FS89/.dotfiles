@@ -8,4 +8,4 @@
 
 ;; font
 (set-face-attribute 'default nil :height 100)
-(setq line-spacing 0.2)
+(setq-default line-spacing 0.3)
