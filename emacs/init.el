@@ -46,3 +46,12 @@
 
 ;; search git repos quickly
 (require 'helm-ls-git)
+
+;; use the better ibuffer for switching between buffers
+(defalias 'list-buffers 'ibuffer)
+
+;; bottom bar
+(require 'powerline)
+(powerline-default-theme)
+
+;; visual long-line column

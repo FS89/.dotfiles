@@ -17,5 +17,6 @@
    git-gutter
    helm-ls-git
    json-mode
-   helm-git-grep)
+   helm-git-grep
+   powerline)
 )

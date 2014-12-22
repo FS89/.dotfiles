@@ -24,6 +24,9 @@
 (global-set-key (kbd "C-c C-g") 'helm-git-grep)
 (global-set-key (kbd "C-c g") 'helm-git-grep)
 
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+
 ;;
 ;; Meta + ...
 ;;
