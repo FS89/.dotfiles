@@ -37,4 +37,8 @@
 ;; add git info to the gutter
 (global-git-gutter-mode +1)
 
+;; flycheck mode (syntax validation, linter, etc.)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; search git repos quickly
+(require 'helm-ls-git)

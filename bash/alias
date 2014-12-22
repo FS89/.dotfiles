@@ -1,31 +1,10 @@
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+export ALTERNATE_EDITOR=""
+export EDITOR=emacsclient
 
-# Bookmarks
-alias dl="cd ~/Downloads"
-alias dev="cd ~/dev"
-alias .df="cd ~/.dotfiles"
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export MTURK_CMD_HOME=/opt/aws-mturk
 
-# List long filenames (colorized)
-alias ll="ls -laFG"
-alias l="ls -laFG"
+alias gitclean="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
-# List directories
-alias ld='ls -laFG | grep "^d"'
-
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-# ROT13-encode text.
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Intuitive map function
-# For example, to list all directories that contain a certain file:
-# find . -name .gitattributes | map dirname
-alias map="xargs -n1"
+alias fuckyouintellij="ibus-daemon -rd"
+alias copy="xclip -sel clip"

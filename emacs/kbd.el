@@ -22,7 +22,8 @@
 ;; Meta + ...
 ;;
 
-(global-set-key (kbd "M-g")       'goto-line)
+(global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "M-R") 'helm-ls-git-ls)
 
 ;;
 ;; Super + ...
