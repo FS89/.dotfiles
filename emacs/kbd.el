@@ -8,6 +8,9 @@
 ;; Press F8 to re-load emacs file
 (global-set-key (kbd "<f8>") (lambda() (interactive) (load-file "~/.emacs")))
 
+;; F5 to refresh buffer
+(global-set-key (kbd "<f5>") 'revert-buffer)
+
 ;;
 ;; Control + ...
 ;;
@@ -41,3 +44,11 @@
 ;; move to top/bottom of buffer
 (global-set-key (kbd "s-p")       'beginning-of-buffer)
 (global-set-key (kbd "s-n")       'end-of-buffer)
+
+;;
+;; Org mode
+;;
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)

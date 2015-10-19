@@ -11,12 +11,22 @@
    (or (package-installed-p package)
        (package-install package)))
  '(python-environment
-   jedi
    indent-guide
    flycheck
    git-gutter
    helm-ls-git
    json-mode
    helm-git-grep
+   js2-mode
+   jsx-mode
+   jedi
+   dockerfile-mode
+   php-mode
+   nix-mode
+   markdown-mode
+   protobuf-mode
+   go-mode
+   auto-complete
+   go-autocomplete
    powerline)
 )

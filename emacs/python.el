@@ -1,11 +1,14 @@
 ;;
 ;; Python-related stuff
 ;;
+(setenv "PYTHONPATH" ".:/home/fabian/dev/core3:/home/fabian/dev/core3/plz-out/gen")
+(add-to-list 'auto-mode-alist '("BUCK" . python-mode))
+(add-to-list 'auto-mode-alist '("BUILD" . python-mode))
 
 (setq jedi:setup-keys nil)
 (setq jedi:tooltip-method nil)
 (autoload 'jedi:setup "jedi" nil t)
-(add-hook 'python-mode-hook 'jedi:setup)(add-hook 'python-mode-hook 'jedi:setup)
+(add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 (jedi:install-server)
 

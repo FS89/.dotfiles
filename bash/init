@@ -3,9 +3,9 @@ function load_file() {
     file=$1
     if [ -f ~/.dotfiles/bash/$file ]; then
 	. ~/.dotfiles/bash/$file
-    fi	
+    fi
 }
 
 load_file alias
 load_file functions
-
+load_file dev

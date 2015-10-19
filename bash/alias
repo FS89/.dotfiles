@@ -4,7 +4,25 @@ export EDITOR=emacsclient
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export MTURK_CMD_HOME=/opt/aws-mturk
 
+export PYTHONDONTWRITEBYTECODE=1
+export GOPATH=/home/fabian/.golang:/home/fabian/dev/core3/plz-out/gen
+
 alias gitclean="git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
 alias fuckyouintellij="ibus-daemon -rd"
 alias copy="xclip -sel clip"
+
+
+alias oplz="sudo"
+
+alias realarc="/usr/local/phabricator/arcanist/bin/arc"
+
+alias gg="git grep"
+
+
+alias 1tree="tree -L 1"
+alias 2tree="tree -L 2"
+alias 3tree="tree -L 3"
+alias 4tree="tree -L 4"
+alias 5tree="tree -L 5"
+alias 6tree="tree -L 6"

@@ -3,9 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flycheck-jshintrc "~/dev/core2/.jshintrc")
- '(flycheck-pylintrc "~/dev/core2/.pylintrc")
- '(global-flycheck-mode t nil (flycheck)))
+ '(tab-width 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

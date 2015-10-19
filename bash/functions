@@ -7,9 +7,9 @@ function ccat() {
     FILE=$1
     if [[ $FILE == */* ]]
     then
-	pygmentize $FILE 2> /dev/null;
-    else	
-        find . -name $FILE -exec pygmentize {} \; 2> /dev/null
+	pygmentize $FILE 2> /dev/null | less;
+    else
+        find . -name $FILE -exec pygmentize {} \; 2> /dev/null | less
     fi
 
     if [[ $? -ne 0 ]]
@@ -18,11 +18,11 @@ function ccat() {
 	then
 	    cat $FILE;
 	else
-	    find . -name $FILE -exec cat {} \;
+	    find . -name $FILE -exec cat {} \ | less;
         fi
     fi
 }
 
-function ppjson() {
+function json() {
     python -m json.tool | pygmentize -l javascript
 }

@@ -9,15 +9,17 @@
 (load (fullpath-relative-to-current-file "kbd.el"))
 (load (fullpath-relative-to-current-file "utilities.el"))
 (load (fullpath-relative-to-current-file "fonts.el"))
+
 (load (fullpath-relative-to-current-file "python.el"))
+(load (fullpath-relative-to-current-file "javascript.el"))
+(load (fullpath-relative-to-current-file "markdown.el"))
 
 ;; most importantly, load the theme
 (load-theme 'tango-dark t)
 
 ;; Backups
 (setq backup-directory-alist `((".*" . "~/.emacs.d/saves")))
-;(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/autosaves" t)))
-
+(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/autosaves" t)))
 
 (setq backup-by-copying t)
 (setq delete-old-versions t
@@ -42,9 +44,10 @@
 (global-git-gutter-mode +1)
 
 ;; flycheck mode (syntax validation, linter, etc.)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;; search git repos quickly
+(require 'helm-plugin)
 (require 'helm-ls-git)
 
 ;; use the better ibuffer for switching between buffers
@@ -52,6 +55,13 @@
 
 ;; bottom bar
 (require 'powerline)
-(powerline-default-theme)
+(powerline-vim-theme)
 
-;; visual long-line column
+(show-paren-mode 1)
+
+;; highlight current line
+(global-hl-line-mode 1)
+(set-face-foreground 'highlight nil)
+(set-face-background 'hl-line "#342e34")
+
+(provide 'init)
