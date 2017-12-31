@@ -51,6 +51,7 @@ values."
      python
      docker
      imenu-list
+     yaml
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -330,6 +331,8 @@ you should place your code here."
   (global-set-key (kbd "M-R") 'helm-projectile-find-file)
   (global-set-key (kbd "M-Y") 'helm-do-ag-project-root)
   (global-set-key (kbd "C-x g") 'magit-status)
+  (global-set-key (kbd "<f8>") 'neotree-projectile-action)
+
 
   (add-hook 'go-mode-hook (lambda ()
                             (local-set-key (kbd "M-?") 'godoc-at-point)))
