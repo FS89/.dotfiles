@@ -317,7 +317,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default git-magit-status-fullscreen t)
   (ws-butler-global-mode 1)
   (setq-default ws-butler-keep-whitespace-before-point)
-  (spacemacs/toggle-centered-point-globally-on)
   )
 
 (defun dotspacemacs/user-config ()
