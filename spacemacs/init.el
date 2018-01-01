@@ -328,6 +328,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq magit-repository-directories '("~/dev/"))
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (set-face-background 'hl-line "#3e4446")
 
   (global-set-key (kbd "<f5>") 'revert-buffer)
   (global-set-key (kbd "C-j") 'newline-and-indent)
