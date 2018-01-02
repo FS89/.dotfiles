@@ -9,8 +9,14 @@
 (load (fullpath-relative-to-current-file "kbd.el"))
 (load (fullpath-relative-to-current-file "utilities.el"))
 (load (fullpath-relative-to-current-file "fonts.el"))
+(load (fullpath-relative-to-current-file "magit.el"))
+(load (fullpath-relative-to-current-file "ibuffer.el"))
+(load (fullpath-relative-to-current-file "rainbow-delimiters.el"))
+(load (fullpath-relative-to-current-file "orgmode.el"))
 
 (load (fullpath-relative-to-current-file "python.el"))
+(load (fullpath-relative-to-current-file "php.el"))
+(load (fullpath-relative-to-current-file "go.el"))
 (load (fullpath-relative-to-current-file "javascript.el"))
 (load (fullpath-relative-to-current-file "markdown.el"))
 
@@ -43,15 +49,15 @@
 ;; add git info to the gutter
 (global-git-gutter-mode +1)
 
-;; flycheck mode (syntax validation, linter, etc.)
-(add-hook 'after-init-hook 'global-flycheck-mode)
-
 ;; search git repos quickly
 (require 'helm-plugin)
 (require 'helm-ls-git)
 
 ;; use the better ibuffer for switching between buffers
 (defalias 'list-buffers 'ibuffer)
+
+;; flycheck mode (syntax validation, linter, etc.)
+(add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;; bottom bar
 (require 'powerline)
@@ -64,4 +70,29 @@
 (set-face-foreground 'highlight nil)
 (set-face-background 'hl-line "#342e34")
 
+;; Neotree
+(require 'neotree)
+
+;; Smart parens
+(require 'smartparens)
+(smartparens-global-mode t)
+
+;; Rainbow delimeters
+(require 'rainbow-delimiters)
+
+(require 'web-mode)
+
+;; Add hide-show mode to these major-modes.
+(load-library "hideshow")
+(add-hook 'c-mode-common-hook   'hs-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+(add-hook 'java-mode-hook       'hs-minor-mode)
+(add-hook 'lisp-mode-hook       'hs-minor-mode)
+(add-hook 'perl-mode-hook       'hs-minor-mode)
+(add-hook 'sh-mode-hook         'hs-minor-mode)
+(add-hook 'python-mode-hook     'hs-minor-mode)
+(add-hook 'json-mode-hook       'hs-minor-mode)
+(add-hook 'web-mode-hook        'hs-minor-mode)
+
 (provide 'init)
+;;; init.el ends here

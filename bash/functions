@@ -3,7 +3,9 @@ function csview() {
     column -s, -t < "$file" | less -#2 -N -S
 }
 
+
 function ccat() {
+    set -x
     FILE=$1
     if [[ $FILE == */* ]]
     then
@@ -25,4 +27,77 @@ function ccat() {
 
 function json() {
     python -m json.tool | pygmentize -l javascript
+}
+
+branch() {
+   local pattern="s/^..//"
+   local arg=""
+   if [[ $@ == "-r" ]]; then
+      pattern="s/^..(.*?)( ->.*)?$/\1/"
+      arg=" -r "
+      echo '-r provided'
+   fi
+   for k in $(git branch $arg | perl -pe "$pattern"); do
+      echo -e $(git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1)\\t$k
+   done | sort -r
+}
+
+aws-profile() {
+  export AWS_PROFILE="$@"
+}
+
+ssh-k8s() {
+  local ip=$(echo "$1" | egrep -o "([0-9]+\-?){4}+" | sed 's/\-/./g')
+  ssh core@"$ip"
+}
+
+k() {
+    local args=( "$@" )
+    local desired_ns=""
+    local desired_ctx=""
+
+    for (( i = 1; i <= $#args; i++ )); do
+        local next_i=$(($i + 1))
+        case "${args[$i]}" in
+            -n|--namespace)
+                desired_ns="${args[$next_i]}"
+                ;;
+            -n=*|--namespace=*)
+                desired_ns="${args[$i]#*=}"
+                ;;
+            --context=*)
+                desired_ctx="${args[$i]#*=}"
+                ;;
+            --context)
+                desired_ctx="${args[$next_i]}"
+                ;;
+            *)
+                ;;
+        esac
+    done
+
+    local current_ctx=$(kubectl config current-context)
+    local use_ctx="$current_ctx"
+    if [ ! -z "$desired_ctx" ]; then
+        use_ctx="$desired_ctx"
+    fi
+    local current_ns=$(kubectl config view -o json | \
+                              jq --arg c "$use_ctx" '.contexts | .[] | select(.name == $c) | .context.namespace' --raw-output)
+
+    local use_ns="$desired_ns"
+    if [ -z "$desired_ns" ]; then
+        use_ns="$current_ns"
+    fi
+
+    if [ "$current_ns" != "$desired_ns" ] && [ -n "$desired_ns" ]; then
+        kubectl config set-context $use_ctx --namespace $use_ns
+    fi
+    if [ "$current_ctx" != "$desired_ctx" ] && [ -n "$desired_ctx" ]; then
+        kubectl config use-context $use_ctx
+    fi
+    kubectl $@
+}
+
+ku() {
+    kubectl $@
 }

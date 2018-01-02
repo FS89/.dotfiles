@@ -1,4 +1,3 @@
-;; package manager
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -22,11 +21,27 @@
    jedi
    dockerfile-mode
    php-mode
-   nix-mode
    markdown-mode
    protobuf-mode
    go-mode
    auto-complete
    go-autocomplete
+   exec-path-from-shell
+   web-mode
+   use-package
+   neotree
+   ace-jump-mode
+   smartparens
+   ibuffer-vc
+   yaml-mode
+   py-autopep8
+   rainbow-delimiters
+   helm-ag
+   multi-term
+   spaceline
+   hcl-mode
    powerline)
 )
+
+(provide 'packages)
+;;; packages.el ends here

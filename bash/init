@@ -6,6 +6,10 @@ function load_file() {
     fi
 }
 
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
 load_file alias
 load_file functions
 load_file dev

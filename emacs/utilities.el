@@ -48,3 +48,30 @@ point reaches the beginning or end of the buffer, stop there."
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'smarter-move-beginning-of-line)
+
+
+;; Make scripts executable on save
+(add-hook 'after-save-hook
+        #'(lambda ()
+        (and (save-excursion
+               (save-restriction
+                 (widen)
+                 (goto-char (point-min))
+                 (save-match-data
+                   (looking-at "^#!"))))
+             (not (file-executable-p buffer-file-name))
+             (shell-command (concat "chmod u+x " buffer-file-name))
+             (message
+              (concat "Saved as script: " buffer-file-name)))))
+
+
+;; Copies the current buffer's filename to the clipboard.
+(defun copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))

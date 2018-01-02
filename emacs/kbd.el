@@ -30,6 +30,20 @@
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 
+(global-set-key (kbd "C-c C-y") 'helm-do-ag-project-root)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+(global-set-key (kbd "C-j") 'newline-and-indent)
+
+
+;; Python
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-.") 'jedi:jump-to-definition)
+             (local-set-key (kbd "C-,") 'jedi:jump-back)
+             (local-set-key (kbd "C-c d") 'jedi:show-doc)
+             (local-set-key (kbd "C-<tab>") 'jedi:complete)))
+
 ;;
 ;; Meta + ...
 ;;
@@ -52,3 +66,22 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+;; ace-jump-mode
+(global-set-key (kbd "C-c C-SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-q") 'ace-jump-mode)
+
+;; Always use ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Neotree
+(global-set-key (kbd "C-x C-t") 'neotree-toggle)
+
+;; Hide-show minor mode
+(global-set-key (kbd "C-}") 'hs-show-block)
+(global-set-key (kbd "C-{") 'hs-hide-block)
+
+(global-set-key (kbd "C-t") 'toggle-truncate-lines)
+
+(provide 'kbd)
+;;; kbd.el ends here
