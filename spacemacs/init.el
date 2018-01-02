@@ -340,7 +340,9 @@ you should place your code here."
 
 
   (add-hook 'go-mode-hook (lambda ()
-                            (local-set-key (kbd "M-?") 'godoc-at-point)))
+                            (local-set-key (kbd "M-?") 'godoc-at-point)
+                            (local-set-key (kbd "C-.") 'godef-jump)
+                            (local-set-key (kbd "C-,") 'pop-tag-mark)))
 
   (add-hook 'python-mode-hook
             (lambda () 
