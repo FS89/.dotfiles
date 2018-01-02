@@ -1,6 +1,3 @@
-export ALTERNATE_EDITOR=""
-export EDITOR="emacsclient -nw"
-
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export MTURK_CMD_HOME=/opt/aws-mturk
 
