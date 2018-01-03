@@ -353,6 +353,19 @@ you should place your code here."
   (define-derived-mode build-file-mode python-mode "BUILD file mode"
     "Major mode for editing BUILD files")
   (add-to-list 'auto-mode-alist '("BUILD" . build-file-mode))
+
+  (defun please-buildify ()
+    "Format the current buffer according to the buildifier tool,
+  in a pretty quick and dirty way."
+    (interactive)
+    (call-process "buildifier" nil nil nil "-mode=fix" (buffer-file-name))
+    (revert-buffer t t))
+
+  (defun please-buildify-on-save ()
+    (interactive)
+    (when (eq major-mode 'build-file-mode) (please-buildify)))
+
+  (add-hook 'after-save-hook 'please-buildify-on-save)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
