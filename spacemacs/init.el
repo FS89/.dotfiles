@@ -47,8 +47,7 @@ values."
      syntax-checking
      yaml
      (go :variables
-         gofmt-command "goimports"
-         )
+         gofmt-command "goimports")
      (javascript :variables
                  js2-basic-offset 2)
      (colors :variables
@@ -56,14 +55,14 @@ values."
      (better-defaults :variables
                       better-defaults-move-to-beginning-of-code-first t
                       better-defaults-move-to-end-of-code-first t)
-     ;; markdown
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
+     (markdown :variables
+               markdown-live-preview-engine 'vmd)
+     (spell-checking :variables
+                     enable-flyspell-auto-completion t)
+     (shell :variables
+            shell-default-position 'bottom
+            shell-default-height 30
+            shell-default-term-shell "/usr/bin/zsh")
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -337,6 +336,7 @@ you should place your code here."
   (global-set-key (kbd "M-Y") 'helm-do-ag-project-root)
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "<f8>") 'neotree-projectile-action)
+  (global-set-key (kbd "M-g") 'goto-line)
 
 
   (add-hook 'go-mode-hook (lambda ()
@@ -359,9 +359,10 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (insert-shebang fish-mode company-shell unfill mwim rainbow-mode rainbow-identifiers color-identifiers-mode all-the-icons memoize font-lock+ imenu-list dockerfile-mode docker tablist docker-tramp yapfify web-beautify pyvenv pytest pyenv-mode py-isort pip-requirements livid-mode skewer-mode simple-httpd live-py-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode helm-pydoc helm-company helm-c-yasnippet go-guru go-eldoc fuzzy flycheck-pos-tip pos-tip flycheck cython-mode company-tern dash-functional tern company-statistics company-go go-mode company-anaconda company coffee-mode auto-yasnippet yasnippet anaconda-mode pythonic ac-ispell auto-complete slack emojify circe oauth2 websocket ht alert log4e gntp smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub async let-alist with-editor dash tangotango-theme-theme tangotango-theme ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help vmd-mode mmm-mode markdown-toc markdown-mode gh-md flyspell-popup flyspell-correct-helm flyspell-correct auto-dictionary insert-shebang fish-mode company-shell unfill mwim rainbow-mode rainbow-identifiers color-identifiers-mode all-the-icons memoize font-lock+ imenu-list dockerfile-mode docker tablist docker-tramp yapfify web-beautify pyvenv pytest pyenv-mode py-isort pip-requirements livid-mode skewer-mode simple-httpd live-py-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode helm-pydoc helm-company helm-c-yasnippet go-guru go-eldoc fuzzy flycheck-pos-tip pos-tip flycheck cython-mode company-tern dash-functional tern company-statistics company-go go-mode company-anaconda company coffee-mode auto-yasnippet yasnippet anaconda-mode pythonic ac-ispell auto-complete slack emojify circe oauth2 websocket ht alert log4e gntp smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub async let-alist with-editor dash tangotango-theme-theme tangotango-theme ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(paradox-github-token t)
  '(python-shell-interpreter "/usr/bin/python3"))
 (custom-set-faces
