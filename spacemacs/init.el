@@ -50,8 +50,7 @@ values."
          gofmt-command "goimports")
      (javascript :variables
                  js2-basic-offset 2)
-     (colors :variables
-             colors-colorize-identifiers 'variables)
+     colors
      (better-defaults :variables
                       better-defaults-move-to-beginning-of-code-first t
                       better-defaults-move-to-end-of-code-first t)
@@ -350,6 +349,7 @@ you should place your code here."
               (local-set-key (kbd "C-,") 'anaconda-mode-go-back)))
   (add-to-list 'python-shell-extra-pythonpaths "/home/fabian/dev/core3")
   (add-to-list 'python-shell-extra-pythonpaths "/home/fabian/dev/core3/plz-out/gen")
+  (add-to-list 'auto-mode-alist '("BUILD" . python-mode))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
