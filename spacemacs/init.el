@@ -56,8 +56,6 @@ values."
                       better-defaults-move-to-end-of-code-first t)
      (markdown :variables
                markdown-live-preview-engine 'vmd)
-     (spell-checking :variables
-                     enable-flyspell-auto-completion t)
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
@@ -337,6 +335,9 @@ you should place your code here."
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "<f8>") 'neotree-projectile-action)
   (global-set-key (kbd "M-g") 'goto-line)
+
+  (add-hook 'go-mode-hook 'rainbow-mode)
+  (add-hook 'python-mode-hook 'rainbow-mode)
 
 
   (add-hook 'go-mode-hook (lambda ()
